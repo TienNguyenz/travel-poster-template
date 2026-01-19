@@ -24,33 +24,33 @@
       background: #fff;
     }
 
-    /* Background - chiếm 55% chiều cao */
+    /* Background - ở phía dưới poster */
     .background {
       position: absolute;
-      top: 0;
+      bottom: 0;
       left: 0;
       width: 100%;
-      height: 55%;
+      height: 50%;
       object-fit: cover;
       z-index: 1;
     }
 
-    /* Gradient overlay cho background */
+    /* Gradient overlay - fade từ trắng xuống trong */
     .bg-overlay {
       position: absolute;
-      top: 0;
+      bottom: 0;
       left: 0;
       width: 100%;
-      height: 60%;
+      height: 55%;
       background: linear-gradient(180deg, 
-        rgba(255,255,255,0) 0%, 
-        rgba(255,255,255,0) 60%,
-        rgba(255,255,255,0.8) 85%,
-        rgba(255,255,255,1) 100%);
+        rgba(255,255,255,1) 0%, 
+        rgba(255,255,255,0.9) 15%,
+        rgba(255,255,255,0.5) 40%,
+        rgba(255,255,255,0) 100%);
       z-index: 2;
     }
 
-    /* Logo - to hơn, rõ hơn */
+    /* Logo - to hơn, rõ hơn, nền trắng */
     .logo {
       position: absolute;
       top: 25px;
@@ -59,10 +59,10 @@
       z-index: 10;
     }
 
-    /* Content area */
+    /* Content area - ở phần trên */
     .content {
       position: absolute;
-      top: 42%;
+      top: 100px;
       left: 0;
       right: 0;
       padding: 0 50px;
