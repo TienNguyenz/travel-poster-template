@@ -21,34 +21,31 @@
       height: 1350px;
       position: relative;
       overflow: hidden;
-      background: #FDFBF7;
     }
 
-    /* Background - chiếm phần dưới poster */
+    /* Background - FULL POSTER */
     .background {
       position: absolute;
-      bottom: 0;
+      top: 0;
       left: 0;
       width: 100%;
-      height: 60%;
+      height: 100%;
       object-fit: cover;
-      object-position: center top;
       z-index: 1;
     }
 
-    /* Gradient overlay - fade từ trắng xuống trong */
+    /* Gradient overlay - fade ở phần trên để đọc text */
     .bg-overlay {
       position: absolute;
-      bottom: 0;
+      top: 0;
       left: 0;
       width: 100%;
-      height: 65%;
+      height: 50%;
       background: linear-gradient(180deg, 
-        rgba(253,251,247,1) 0%, 
-        rgba(253,251,247,0.95) 10%,
-        rgba(253,251,247,0.7) 25%,
-        rgba(253,251,247,0.3) 45%,
-        rgba(253,251,247,0) 100%);
+        rgba(255,255,255,0.95) 0%, 
+        rgba(255,255,255,0.9) 30%,
+        rgba(255,255,255,0.6) 60%,
+        rgba(255,255,255,0) 100%);
       z-index: 2;
     }
 
@@ -57,11 +54,11 @@
       position: absolute;
       top: 30px;
       left: 30px;
-      height: 70px;
+      height: 100px;
       z-index: 10;
     }
 
-    /* Content area - ở phần trên */
+    /* Content area - đè lên trên ảnh */
     .content {
       position: absolute;
       top: 100px;
@@ -69,12 +66,12 @@
       right: 0;
       padding: 0 40px;
       text-align: center;
-      z-index: 5;
+      z-index: 10;
     }
 
     .tagline-small {
       font-size: 18px;
-      color: #A08060;
+      color: #8B7355;
       font-weight: 500;
       letter-spacing: 3px;
       margin-bottom: 10px;
@@ -120,16 +117,18 @@
       color: #5D4037;
       font-weight: 600;
       font-style: italic;
-      margin-bottom: 35px;
+      margin-bottom: 30px;
     }
 
-    /* Features Grid - 4 columns, 2 rows */
+    /* Features Grid - có background mờ để đọc được */
     .features {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px 10px;
-      margin-bottom: 20px;
-      padding: 0 20px;
+      gap: 15px 10px;
+      padding: 20px;
+      background: rgba(255,255,255,0.85);
+      border-radius: 15px;
+      backdrop-filter: blur(5px);
     }
 
     .feature {
@@ -137,60 +136,64 @@
     }
 
     .feature-icon {
-      width: 50px;
-      height: 50px;
-      margin: 0 auto 10px;
+      width: 45px;
+      height: 45px;
+      margin: 0 auto 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255,255,255,0.9);
+      background: white;
       border-radius: 50%;
       padding: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .feature-icon img {
-      width: 28px;
-      height: 28px;
+      width: 24px;
+      height: 24px;
       object-fit: contain;
-      opacity: 0.8;
+      opacity: 0.7;
     }
 
     .feature-text {
-      font-size: 12px;
+      font-size: 11px;
       color: #5D4037;
-      line-height: 1.4;
+      line-height: 1.35;
       font-weight: 500;
     }
 
-    /* Hotline - dưới cùng */
+    /* Hotline - dưới cùng với background */
     .hotline {
       position: absolute;
       bottom: 25px;
-      left: 0;
-      right: 0;
+      left: 50%;
+      transform: translateX(-50%);
       text-align: center;
-      font-size: 24px;
-      color: #4A3728;
+      font-size: 22px;
+      color: white;
       font-weight: 700;
       z-index: 10;
+      background: rgba(0,0,0,0.5);
+      padding: 12px 30px;
+      border-radius: 30px;
+      backdrop-filter: blur(5px);
     }
 
     .hotline span {
-      color: #B8956C;
+      color: #FFD700;
     }
   </style>
 </head>
 <body>
   <div class="poster" id="poster">
-    <!-- Background Image -->
+    <!-- Background Image - FULL -->
     <img class="background" id="bg-image" src="" alt="Background">
     <div class="bg-overlay"></div>
 
-    <!-- Logo - góc trên trái -->
+    <!-- Logo -->
     <img class="logo" id="logo" src="logo.png" alt="PASSPORT LOUNGE">
 
-    <!-- Content -->
+    <!-- Content - overlay -->
     <div class="content">
       <div class="tagline-small">MY FAMILY, MY TRIP</div>
       <div class="destination">
@@ -200,7 +203,7 @@
       <div class="price-box" id="price">3.500 USD / GIA ĐÌNH</div>
       <div class="tagline" id="tagline">Giải pháp du lịch hoàn hảo cho gia đình Việt!</div>
 
-      <!-- Features Grid với icons -->
+      <!-- Features Grid -->
       <div class="features" id="features">
         <div class="feature">
           <div class="feature-icon">
@@ -224,7 +227,7 @@
           <div class="feature-icon">
             <img src="img/iphone.png" alt="phone">
           </div>
-          <div class="feature-text">Sim du lịch Nhật Bản<br>5GB / thành viên</div>
+          <div class="feature-text">Sim du lịch<br>5GB / thành viên</div>
         </div>
         <div class="feature">
           <div class="feature-icon">
@@ -260,10 +263,8 @@
   </div>
 
   <script>
-    // Get URL parameters
     const urlParams = new URLSearchParams(window.location.search);
 
-    // Set values from URL params
     const bgImage = urlParams.get('bg') || 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1080';
     const logo = urlParams.get('logo') || 'logo.png';
     const destination = urlParams.get('destination') || 'NHẬT BẢN';
@@ -273,7 +274,6 @@
     const tagline = urlParams.get('tagline') || 'Giải pháp du lịch hoàn hảo cho gia đình Việt!';
     const hotline = urlParams.get('hotline') || '1900 63 65 63';
 
-    // Apply values
     document.getElementById('bg-image').src = decodeURIComponent(bgImage);
     document.getElementById('logo').src = decodeURIComponent(logo);
     document.getElementById('destination-name').textContent = decodeURIComponent(destination).toUpperCase();
@@ -281,7 +281,6 @@
     document.getElementById('tagline').textContent = decodeURIComponent(tagline);
     document.getElementById('hotline-number').textContent = decodeURIComponent(hotline);
 
-    // Handle flag
     const flagElement = document.getElementById('flag');
     if (countryCode && countryCode !== 'none' && countryCode.length === 2) {
       flagElement.src = `https://flagcdn.com/w160/${countryCode.toLowerCase()}.png`;
