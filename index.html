@@ -61,6 +61,299 @@
     /* Content area - đè lên trên ảnh */
     .content {
       position: absolute;
+      top: 160px;
+      left: 0;
+      right: 0;
+      padding: 0 40px;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .tagline-small {
+      font-size: 24px;
+      color: #8B7355;
+      font-weight: 600;
+      letter-spacing: 5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .destination {
+      font-size: 46px;
+      font-weight: 900;
+      color: #4A3728;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .flag {
+      width: 50px;
+      height: 36px;
+      border-radius: 4px;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .price-box {
+      background: linear-gradient(135deg, #C9A86C 0%, #A67C52 100%);
+      color: white;
+      padding: 16px 55px;
+      font-size: 30px;
+      font-weight: 700;
+      border-radius: 8px;
+      display: inline-block;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(166, 124, 82, 0.35);
+      letter-spacing: 0.5px;
+    }
+
+    .tagline {
+      font-size: 20px;
+      color: #5D4037;
+      font-weight: 600;
+      font-style: italic;
+      margin-bottom: 30px;
+    }
+
+    /* Features Grid - có background mờ để đọc được */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px 10px;
+      padding: 20px;
+      background: rgba(255,255,255,0.85);
+      border-radius: 15px;
+      backdrop-filter: blur(5px);
+    }
+
+    .feature {
+      text-align: center;
+    }
+
+    .feature-icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      border-radius: 50%;
+      padding: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .feature-icon img {
+      width: 55px;
+      height: 55px;
+      object-fit: contain;
+      opacity: 0.85;
+    }
+
+    .feature-text {
+      font-size: 18px;
+      color: #4A3728;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+
+    /* Hotline - dưới cùng với background */
+    .hotline {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      font-size: 22px;
+      color: white;
+      font-weight: 700;
+      z-index: 10;
+      background: rgba(0,0,0,0.5);
+      padding: 12px 30px;
+      border-radius: 30px;
+      backdrop-filter: blur(5px);
+    }
+
+    .hotline span {
+      color: #FFD700;
+    }
+  </style>
+</head>
+<body>
+  <div class="poster" id="poster">
+    <!-- Background Image - FULL -->
+    <img class="background" id="bg-image" src="" alt="Background">
+    <div class="bg-overlay"></div>
+
+    <!-- Logo -->
+    <img class="logo" id="logo" src="logo.png" alt="PASSPORT LOUNGE">
+
+    <!-- Content - overlay -->
+    <div class="content">
+      <div class="tagline-small">MY FAMILY, MY TRIP</div>
+      <div class="destination">
+        COMBO DU LỊCH <span id="destination-name">NHẬT BẢN</span>
+        <img class="flag" id="flag" src="" alt="Flag">
+      </div>
+      <div class="price-box" id="price">3.500 USD / GIA ĐÌNH</div>
+      <div class="tagline" id="tagline">Giải pháp du lịch hoàn hảo cho gia đình Việt!</div>
+
+      <!-- Features Grid -->
+      <div class="features" id="features">
+        <div class="feature">
+          <div class="feature-icon">
+            <img src="img/suv-car.png" alt="car">
+          </div>
+          <div class="feature-text">Xe riêng SUV<br>7 chỗ – 5 ngày</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <img src="img/maps-and-flags.png" alt="map">
+          </div>
+          <div class="feature-text">Đón ở sân bay:<br>Sapporo / Tokyo /<br>Osaka / Nagoya</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <img src="img/driver.png" alt="driver">
+          </div>
+          <div class="feature-text">Tài xế Việt Nam<br>am hiểu lịch trình</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <img src="img/iphone.png" alt="phone">
+          </div>
+          <div class="feature-text">Sim du lịch<br>5GB / thành viên</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <img src="img/home.png" alt="house">
+          </div>
+          <div class="feature-text">4 đêm căn hộ Airbnb<br>riêng 2 phòng ngủ</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <img src="img/drop.png" alt="water">
+          </div>
+          <div class="feature-text">Nước uống<br>không giới hạn</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <img src="img/reload.png" alt="flexible">
+          </div>
+          <div class="feature-text">Chủ động tham quan,<br>ăn uống theo gia đình</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <img src="img/calendar.png" alt="calendar">
+          </div>
+          <div class="feature-text">Đổi lịch trình & chỗ ở<br>trước 48 tiếng</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hotline -->
+    <div class="hotline">
+      Hotline: <span id="hotline-number">1900 63 65 63</span>
+    </div>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const bgImage = urlParams.get('bg') || 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1080';
+    const logo = urlParams.get('logo') || 'logo.png';
+    const destination = urlParams.get('destination') || 'NHẬT BẢN';
+    const countryCode = urlParams.get('country') || 'jp';
+    const price = urlParams.get('price') || '3.500 USD';
+    const target = urlParams.get('target') || 'GIA ĐÌNH';
+    const tagline = urlParams.get('tagline') || 'Giải pháp du lịch hoàn hảo cho gia đình Việt!';
+    const hotline = urlParams.get('hotline') || '1900 63 65 63';
+
+    document.getElementById('bg-image').src = decodeURIComponent(bgImage);
+    document.getElementById('logo').src = decodeURIComponent(logo);
+    document.getElementById('destination-name').textContent = decodeURIComponent(destination).toUpperCase();
+    document.getElementById('price').textContent = decodeURIComponent(price) + ' / ' + decodeURIComponent(target).toUpperCase();
+    document.getElementById('tagline').textContent = decodeURIComponent(tagline);
+    document.getElementById('hotline-number').textContent = decodeURIComponent(hotline);
+
+    const flagElement = document.getElementById('flag');
+    if (countryCode && countryCode !== 'none' && countryCode.length === 2) {
+      flagElement.src = `https://flagcdn.com/w160/${countryCode.toLowerCase()}.png`;
+      flagElement.style.display = 'inline-block';
+    } else {
+      flagElement.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Poster Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .poster {
+      width: 1080px;
+      height: 1350px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Background - FULL POSTER */
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    /* Gradient overlay - fade ở phần trên để đọc text */
+    .bg-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: linear-gradient(180deg, 
+        rgba(255,255,255,0.95) 0%, 
+        rgba(255,255,255,0.9) 30%,
+        rgba(255,255,255,0.6) 60%,
+        rgba(255,255,255,0) 100%);
+      z-index: 2;
+    }
+
+    /* Logo - góc trên trái */
+    .logo {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      height: 130px;
+      z-index: 10;
+    }
+
+    /* Content area - đè lên trên ảnh */
+    .content {
+      position: absolute;
       top: 100px;
       left: 0;
       right: 0;
@@ -291,3 +584,4 @@
   </script>
 </body>
 </html>
+
