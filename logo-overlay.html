@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Poster - Logo Overlay</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .poster {
+      width: 1080px;
+      height: 1350px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Background - Full poster từ AI */
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    /* Logo - Góc trên trái */
+    .logo {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      height: 120px;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <div class="poster" id="poster">
+    <!-- Background từ AI -->
+    <img class="background" id="bg-image" src="" alt="Poster Background">
+
+    <!-- Logo overlay -->
+    <img class="logo" id="logo" src="" alt="Logo">
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const bgImage = urlParams.get('bg') || '';
+    const logo = urlParams.get('logo') || '';
+
+    if (bgImage) {
+      document.getElementById('bg-image').src = decodeURIComponent(bgImage);
+    }
+
+    if (logo) {
+      document.getElementById('logo').src = decodeURIComponent(logo);
+    }
+  </script>
+</body>
+</html>
