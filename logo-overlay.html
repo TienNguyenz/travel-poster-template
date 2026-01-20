@@ -11,55 +11,48 @@
       box-sizing: border-box;
     }
 
+    body {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
     .poster {
-      width: 1080px;
-      height: 1350px;
       position: relative;
-      overflow: hidden;
+      display: inline-block;
     }
 
-    /* Background - Full poster từ AI */
     .background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center top;
-      background-color: #f5f0e8;
-      z-index: 1;
+      display: block;
+      max-width: 1080px;
+      height: auto;
     }
 
-    /* Logo - Góc trên trái */
     .logo {
       position: absolute;
-      top: 20px;
-      left: 20px;
-      height: 80px;
+      top: 2%;
+      left: 2%;
+      width: 15%;
+      height: auto;
       z-index: 10;
     }
   </style>
 </head>
 <body>
   <div class="poster" id="poster">
-    <!-- Background từ AI -->
-    <img class="background" id="bg-image" src="" alt="Poster Background">
-
-    <!-- Logo overlay -->
+    <img class="background" id="bg-image" src="" alt="Poster">
     <img class="logo" id="logo" src="" alt="Logo">
   </div>
 
   <script>
     const urlParams = new URLSearchParams(window.location.search);
-
     const bgImage = urlParams.get('bg') || '';
     const logo = urlParams.get('logo') || '';
 
     if (bgImage) {
       document.getElementById('bg-image').src = decodeURIComponent(bgImage);
     }
-
     if (logo) {
       document.getElementById('logo').src = decodeURIComponent(logo);
     }
